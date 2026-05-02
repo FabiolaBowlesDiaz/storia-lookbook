@@ -2,3 +2,10 @@ Album Nacimiento.zip
 extracted/
 server-*.log
 *.err.log
+.tmp-*
+orientation-contact.jpg
+new-images-contact.jpg
+lookbook-preview.png
+detail-candidates-contact.jpg
+detalles-contact.jpg
+tmp-detail-candidates/

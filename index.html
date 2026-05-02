@@ -52,11 +52,12 @@ html,body{background:var(--crema);color:var(--tinta);font-family:"Nunito",system
 
 /* GRID */
 .grid-section{padding:60px 32px 100px;max-width:1300px;margin:0 auto}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:32px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:32px}
 .card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(61,40,23,.06);transition:transform 250ms,box-shadow 250ms;cursor:pointer;display:flex;flex-direction:column}
 .card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(61,40,23,.12)}
-.card-img-wrap{aspect-ratio:3/4;overflow:hidden;background:var(--arena);position:relative}
-.card-img{width:100%;height:100%;object-fit:cover;transition:transform 400ms}
+.card-img-wrap{aspect-ratio:4/3;overflow:hidden;background:linear-gradient(135deg,#8b5f3c,#c79a70 48%,#7a5234);position:relative}
+.card-img-wrap::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.24);pointer-events:none}
+.card-img{width:100%;height:100%;object-fit:contain;padding:10px;filter:drop-shadow(0 12px 18px rgba(61,40,23,.22));transition:transform 400ms}
 .card:hover .card-img{transform:scale(1.04)}
 .card-num{position:absolute;top:14px;left:14px;background:rgba(245,239,230,.95);padding:6px 12px;border-radius:100px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.15em;color:var(--terra);font-weight:700}
 .card-fav{position:absolute;top:14px;right:14px;background:rgba(245,239,230,.95);width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;border:none;transition:transform 200ms}
@@ -79,8 +80,8 @@ html,body{background:var(--crema);color:var(--tinta);font-family:"Nunito",system
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .modal{background:var(--crema);border-radius:16px;max-width:1100px;width:100%;max-height:92vh;overflow-y:auto;display:grid;grid-template-columns:1.2fr 1fr;animation:slideUp 350ms}
 @keyframes slideUp{from{transform:translateY(20px);opacity:.5}to{transform:translateY(0);opacity:1}}
-.modal-img{aspect-ratio:3/4;background:var(--arena);overflow:hidden}
-.modal-img img{width:100%;height:100%;object-fit:cover}
+.modal-img{aspect-ratio:4/3;background:linear-gradient(135deg,#8b5f3c,#c79a70 48%,#7a5234);overflow:hidden}
+.modal-img img{width:100%;height:100%;object-fit:contain;padding:16px;filter:drop-shadow(0 16px 24px rgba(61,40,23,.26))}
 .modal-body{padding:48px 44px;overflow-y:auto}
 .modal-close{position:absolute;top:24px;right:24px;background:var(--crema);width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;font-size:20px;z-index:10;color:var(--tinta);display:flex;align-items:center;justify-content:center}
 .modal-cat{font-family:"Italiana",serif;font-size:12px;letter-spacing:.3em;color:var(--terra);margin-bottom:12px}
@@ -121,6 +122,32 @@ html,body{background:var(--crema);color:var(--tinta);font-family:"Nunito",system
 .spec-cta{margin-top:30px}
 .spec-cta .btn-wa{padding:16px 22px;font-size:14px}
 
+/* DETALLES */
+.album-details{background:#fff;padding:90px 32px;border-top:1px solid var(--arena)}
+.album-details-inner{max-width:1200px;margin:0 auto}
+.details-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,420px);gap:56px;align-items:end;margin-bottom:42px}
+.details-head .section-title{margin-bottom:0}
+.details-copy{font-family:"Cormorant",serif;font-style:italic;font-size:20px;color:var(--tintaSoft);line-height:1.55}
+.details-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:24px;align-items:stretch}
+.detail-feature,.detail-video,.detail-card{border-radius:14px;overflow:hidden;background:var(--crema);box-shadow:0 10px 34px rgba(61,40,23,.08);position:relative}
+.detail-feature{min-height:520px}
+.detail-feature img,.detail-card img{width:100%;height:100%;object-fit:cover;display:block}
+.detail-feature img{min-height:520px}
+.detail-caption{position:absolute;left:18px;right:18px;bottom:18px;background:rgba(245,239,230,.92);backdrop-filter:blur(10px);border:1px solid rgba(232,213,196,.7);border-radius:10px;padding:14px 16px}
+.detail-label{font-family:"Italiana",serif;font-size:11px;letter-spacing:.3em;color:var(--terra);text-transform:uppercase;margin-bottom:5px}
+.detail-title{font-family:"Fraunces",serif;font-style:italic;font-weight:300;font-size:25px;line-height:1.15;color:var(--tinta)}
+.details-side{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.detail-card{min-height:248px}
+.detail-card.tall{grid-row:span 2;min-height:520px}
+.detail-card .detail-title{font-size:21px}
+.detail-card .detail-caption{padding:12px 14px;left:14px;right:14px;bottom:14px}
+.detail-video{margin-top:24px;display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;background:var(--tinta);color:var(--crema)}
+.detail-video video{width:100%;height:100%;max-height:520px;object-fit:cover;display:block;background:#000}
+.detail-video-copy{padding:34px 34px 36px}
+.detail-video-copy .section-eyebrow{color:var(--arena)}
+.detail-video-copy h4{font-family:"Fraunces",serif;font-style:italic;font-weight:300;font-size:34px;line-height:1.12;margin-bottom:14px;color:var(--crema)}
+.detail-video-copy p{font-size:14.5px;color:var(--arena);line-height:1.65}
+
 /* PROCESO */
 .process{background:var(--oliva);color:var(--crema);padding:80px 32px}
 .process-inner{max-width:1100px;margin:0 auto;text-align:center}
@@ -154,7 +181,7 @@ footer{background:var(--arena);padding:40px 32px;text-align:center}
   .filter-wrap{padding:16px 18px}
   .filter-btn{padding:8px 14px;font-size:12px}
   .grid-section{padding:40px 20px 80px}
-  .grid{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
   .modal-bg{padding:0}
   .modal{grid-template-columns:1fr;border-radius:0;max-height:100vh}
   .modal-img{aspect-ratio:4/3}
@@ -170,6 +197,12 @@ footer{background:var(--arena);padding:40px 32px;text-align:center}
   .process{padding:60px 24px}
   .process-steps{grid-template-columns:repeat(2,1fr);gap:32px 24px}
   .process-step::before{display:none}
+  .album-details{padding:60px 24px}
+  .details-head{grid-template-columns:1fr;gap:18px;margin-bottom:30px}
+  .details-grid{grid-template-columns:1fr}
+  .detail-feature,.detail-feature img{min-height:430px}
+  .detail-video{grid-template-columns:1fr}
+  .detail-video-copy{padding:28px 26px 32px}
 }
 
 /* MOBILE */
@@ -196,7 +229,7 @@ footer{background:var(--arena);padding:40px 32px;text-align:center}
   .card-body{padding:20px}
   .card-name{font-size:26px}
   .card-desc{font-size:13px}
-  .modal-img{aspect-ratio:1/1}
+  .modal-img{aspect-ratio:4/3}
   .modal-body{padding:24px 20px 28px}
   .modal-name{font-size:32px}
   .modal-desc{font-size:16px}
@@ -217,6 +250,16 @@ footer{background:var(--arena);padding:40px 32px;text-align:center}
   .spec-val{font-size:18px}
   .spec-val.price{font-size:28px}
   .spec-row{padding:14px 0}
+  .album-details{padding:48px 18px}
+  .details-copy{font-size:17px}
+  .detail-feature,.detail-feature img{min-height:330px}
+  .details-side{grid-template-columns:1fr;gap:18px}
+  .detail-card,.detail-card.tall{min-height:330px;grid-row:auto}
+  .detail-caption{left:12px;right:12px;bottom:12px;padding:12px 13px}
+  .detail-title{font-size:22px}
+  .detail-card .detail-title{font-size:20px}
+  .detail-video{margin-top:18px}
+  .detail-video-copy h4{font-size:28px}
   .process{padding:50px 18px}
   .process-steps{grid-template-columns:1fr;gap:28px}
   .process-num{font-size:38px;margin-bottom:8px}
@@ -248,9 +291,9 @@ footer{background:var(--arena);padding:40px 32px;text-align:center}
     <div class="brand">S<span class="dot">·</span>T<span class="dot">·</span>O<span class="dot">·</span>R<span class="dot">·</span>I<span class="dot">·</span>A</div>
     <div class="brand-tag">Tu historia, hecha a mano</div>
     <h1>Catálogo de diseños.</h1>
-    <p>Cada álbum es único, hecho a mano, pensado para tu bebé. Estos son algunos de los diseños disponibles — podemos adaptar colores, nombres y temáticas a tu historia.</p>
+    <p>Cada álbum es único, hecho a mano, pensado para tu bebé. Elegí la temática que más te guste: todos incluyen las mismas 11 secciones y se personalizan con tu historia.</p>
     <div class="stats">
-      <div class="stat"><div class="stat-num" id="stat-total">8</div><div class="stat-lbl">DISEÑOS</div></div>
+      <div class="stat"><div class="stat-num" id="stat-total">11</div><div class="stat-lbl">DISEÑOS</div></div>
       <div class="stat"><div class="stat-num">100%</div><div class="stat-lbl">A MANO</div></div>
       <div class="stat"><div class="stat-num">30<span style="font-size:.55em;letter-spacing:.05em;margin-left:.1em">días</span></div><div class="stat-lbl">DE PROCESO</div></div>
     </div>
@@ -333,6 +376,78 @@ footer{background:var(--arena);padding:40px 32px;text-align:center}
   </div>
 </section>
 
+<section class="album-details" id="detalles">
+  <div class="album-details-inner">
+    <div class="details-head">
+      <div>
+        <div class="section-eyebrow">Detalles del álbum</div>
+        <h3 class="section-title">Todo pensado para guardar sus primeros recuerdos.</h3>
+      </div>
+      <p class="details-copy">Además de elegir la temática de portada, cada álbum trae páginas interiores para fotos, datos del nacimiento, familia y momentos especiales. Los detalles en relieve, perlitas y cortes a mano hacen que cada hoja se sienta única.</p>
+    </div>
+
+    <div class="details-grid">
+      <article class="detail-feature">
+        <img src="detalles/datos-nacimiento.jpg" alt="Página de datos del nacimiento del álbum STORIA">
+        <div class="detail-caption">
+          <div class="detail-label">Datos del nacimiento</div>
+          <div class="detail-title">Fecha, hora, peso y talla en una página especial.</div>
+        </div>
+      </article>
+
+      <div class="details-side">
+        <article class="detail-card tall">
+          <img src="detalles/empaque-inicial.jpg" alt="Empaque del álbum con inicial personalizada">
+          <div class="detail-caption">
+            <div class="detail-label">Presentación</div>
+            <div class="detail-title">Inicial personalizada y textura artesanal.</div>
+          </div>
+        </article>
+        <article class="detail-card">
+          <img src="detalles/arbol-familiar.jpg" alt="Página de árbol familiar del álbum">
+          <div class="detail-caption">
+            <div class="detail-label">Familia</div>
+            <div class="detail-title">Un espacio para sus raíces.</div>
+          </div>
+        </article>
+        <article class="detail-card">
+          <img src="detalles/mi-historia.jpg" alt="Página mi historia con espacios para fotos">
+          <div class="detail-caption">
+            <div class="detail-label">Fotos</div>
+            <div class="detail-title">Marcos listos para completar.</div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="details-side" style="margin-top:24px">
+      <article class="detail-card">
+        <img src="detalles/espacios-fotos.jpg" alt="Álbum abierto con espacios para fotos">
+        <div class="detail-caption">
+          <div class="detail-label">Recuerdos</div>
+          <div class="detail-title">Páginas para fotos y momentos.</div>
+        </div>
+      </article>
+      <article class="detail-card">
+        <img src="detalles/detalle-inicial.jpg" alt="Detalle de inicial con flores y perlitas">
+        <div class="detail-caption">
+          <div class="detail-label">Relieve</div>
+          <div class="detail-title">Flores, perlitas y capas de papel.</div>
+        </div>
+      </article>
+    </div>
+
+    <article class="detail-video">
+      <video src="detalles/detalles-album.mp4" controls playsinline preload="metadata"></video>
+      <div class="detail-video-copy">
+        <div class="section-eyebrow">En movimiento</div>
+        <h4>Un vistazo a los acabados reales.</h4>
+        <p>El video ayuda a ver mejor el volumen, las texturas y cómo se sienten las páginas al pasar. Es material de apoyo para mostrar la calidad artesanal sin mezclarlo con las temáticas.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
 <section class="process">
   <div class="process-inner">
     <div class="section-eyebrow">Cómo encargar</div>
@@ -403,103 +518,136 @@ footer{background:var(--arena);padding:40px 32px;text-align:center}
 // CONFIGURACIÓN — editá aquí
 // ═══════════════════════════════════════════════════════════════
 const WHATSAPP = ''; // Opcional: agregar número sin + ni espacios. Vacío abre WhatsApp con mensaje prellenado.
+const INCLUDED_NOTE = 'Incluye las mismas 11 secciones del álbum STORIA, personalizadas con nombre, fotos y datos del bebé.';
 
 const CATEGORIAS = [
   { id: 'todos', label: 'Todos' },
-  { id: 'animales', label: '🐰 Animales' },
-  { id: 'naturaleza', label: '🌿 Naturaleza' },
-  { id: 'fantasia', label: '🧚 Fantasía' },
-  { id: 'datos', label: '📜 Datos del bebé' },
+  { id: 'nina', label: 'Niña' },
+  { id: 'nino', label: 'Niño' },
+  { id: 'unisex', label: 'Unisex' },
 ];
 
 const DISENOS = [
   {
     num: '01',
-    name: 'Conejita en pascuas',
-    cat: 'animales',
-    catLabel: 'ANIMALES · NIÑA',
-    img: 'fotos/martina-conejita-pascuas.jpg',
-    desc: 'Conejita central con guirnaldas de flores y huevos de pascua. El nombre del bebé bordea el diseño.',
-    details: 'Composición central con conejita die-cut sobre roseta dorada. Marcos laterales: pasto con huevos de pascua a la izquierda, ramas con flores y mariposas a la derecha. Nombre personalizado en cursiva dorada.',
+    name: 'Dulce Conejita',
+    cat: 'nina',
+    catLabel: 'NIÑA',
+    img: 'fotos/dulce-conejita.jpg',
+    desc: 'Conejita central, flores perladas y detalles de pascua en tonos suaves.',
+    details: 'Una temática tierna y delicada, con conejita, flores, huevitos y detalles dorados. Ideal para una portada dulce y femenina.',
     palette: ['#F5EFE6', '#E8D5C4', '#D4B5C4', '#A8C9A8', '#D4AF87'],
-    tags: ['niña', 'pastel', 'pascuas', 'personalizable']
+    tags: ['niña', 'pastel', 'flores', 'tierna']
   },
   {
     num: '02',
-    name: 'La granja en crema',
-    cat: 'animales',
-    catLabel: 'ANIMALES · UNISEX',
-    img: 'fotos/granja-crema.jpg',
-    desc: 'Vaca, cerdito y ovejita con granero y vías de tren. Tonos cálidos crema y nude.',
-    details: 'Escena rural: granero central, animales de granja del lado izquierdo, vías y árbol florido al pie. Paleta beige/crema/marfil con acento marrón. Ideal para nene o nena.',
+    name: 'Granjita',
+    cat: 'unisex',
+    catLabel: 'UNISEX',
+    img: 'fotos/granjita.jpg',
+    desc: 'Granero, animalitos y jardín en una escena cálida de campo.',
+    details: 'Una granjita alegre con vaca, ovejita, gallinitas y espantapájaros. Funciona muy bien para niño o niña por su paleta crema, verde y rosa suave.',
     palette: ['#F5EFE6', '#E8D5C4', '#D4B5A4', '#8B6F5C', '#C9B89A'],
-    tags: ['unisex', 'campo', 'animales', 'detalle']
+    tags: ['unisex', 'campo', 'animalitos', 'cálida']
   },
   {
     num: '03',
-    name: 'Comienza... datos',
-    cat: 'datos',
-    catLabel: 'PÁGINA DE DATOS',
-    img: 'fotos/comienza-datos.jpg',
-    desc: 'Página clave: fecha, hora, talla y peso del bebé en banderines colgantes.',
-    details: 'Página interior con la palabra "Comienza..." en cursiva dorada vertical. Cuatro banderines lila/rosa con los datos del nacimiento. Rama floreada decorativa, pasto al borde.',
-    palette: ['#F5EFE6', '#D4C4D4', '#E8D5DD', '#A8C9A8', '#D4AF87'],
-    tags: ['datos', 'fecha', 'hora', 'peso', 'talla', 'imprescindible']
+    name: 'Pajaritos',
+    cat: 'unisex',
+    catLabel: 'UNISEX',
+    img: 'fotos/pajaritos.jpg',
+    desc: 'Casitas de pájaros, flores y pasto en celeste suave.',
+    details: 'Una escena primaveral con pajaritos y flores perladas. Tiene un aire liviano, fresco y muy delicado para cualquier bebé.',
+    palette: ['#D4DCE8', '#C9D4C4', '#D4B5C4', '#E8D5C4', '#A8C9C9'],
+    tags: ['unisex', 'celeste', 'flores', 'suave']
   },
   {
     num: '04',
-    name: 'Hongo y patito',
-    cat: 'naturaleza',
-    catLabel: 'NATURALEZA · NIÑA',
-    img: 'fotos/hongo-pato-rosa.jpg',
-    desc: 'Patitos junto a un hongo gigante, arcoíris suave y ramas floridas. Paleta rosa antigua.',
-    details: 'Composición tipo cuento: arcoíris pastel rosa al fondo, dos patitos, hongos texturados con acabado satinado, lámina lateral con relieves de nubes y flores. Romántico, niña.',
-    palette: ['#F5EFE6', '#E8D5DD', '#D4B5C4', '#C9A89D', '#A8C9A8'],
-    tags: ['niña', 'romántico', 'rosa', 'cuento']
+    name: 'Arcoíris Dulce',
+    cat: 'unisex',
+    catLabel: 'UNISEX',
+    img: 'fotos/arcoiris-dulce.jpg',
+    desc: 'Arcoíris pastel, mariposas y flores con brillo perlado.',
+    details: 'Un diseño luminoso con arcoíris, nubecitas, mariposas y flores. Es una opción suave, alegre y muy versátil.',
+    palette: ['#E8B5A4', '#C9A8C9', '#A8C9C9', '#D4AF87', '#E8D5C4'],
+    tags: ['unisex', 'arcoíris', 'mariposas', 'pastel']
   },
   {
     num: '05',
-    name: 'Hadas con arcoíris',
-    cat: 'fantasia',
-    catLabel: 'FANTASÍA · NIÑA',
-    img: 'fotos/hadas-arcoiris.jpg',
-    desc: 'Hadas voladoras, mariposas con estrellas doradas y arcoíris monocromático rosa.',
-    details: 'Hadas die-cut con varitas y estrellas doradas en relieve. Conejito blanco entre flores. Arcoíris en gradiente rosa, lámina con efecto nube acolchada. Mágico y soñador.',
+    name: 'Bosque de Hadas',
+    cat: 'nina',
+    catLabel: 'NIÑA',
+    img: 'fotos/bosque-de-hadas.jpg',
+    desc: 'Hadas, honguitos, flores y arcoíris en una escena de cuento.',
+    details: 'Una temática mágica y delicada, con hadas, estrellas, honguitos y flores. Perfecta para una portada soñadora.',
     palette: ['#F5EFE6', '#E8D5DD', '#D4B5C4', '#D4AF87', '#A8C9A8'],
-    tags: ['niña', 'mágico', 'hadas', 'mariposas', 'oro']
+    tags: ['niña', 'hadas', 'cuento', 'mágica']
   },
   {
     num: '06',
-    name: 'Arcoíris con mariposas',
-    cat: 'naturaleza',
-    catLabel: 'NATURALEZA · UNISEX',
-    img: 'fotos/arcoiris-mariposas.jpg',
-    desc: 'Arcoíris pastel con flores, gotas de lluvia y tres mariposas. Brillo perlado.',
-    details: 'Arcoíris textura tejida en tonos coral/lila/menta. Marco superior con guirnalda de flores y hojas, mariposas con pepitas de perla. Nubes acolchadas al pie. Paleta arcoíris equilibrada.',
-    palette: ['#E8B5A4', '#C9A8C9', '#A8C9C9', '#D4AF87', '#E8D5C4'],
-    tags: ['unisex', 'arcoíris', 'mariposas', 'textura']
+    name: 'Patitos',
+    cat: 'nina',
+    catLabel: 'NIÑA',
+    img: 'fotos/patitos.jpg',
+    desc: 'Patitos, hongo rosa y ramas floridas en tonos empolvados.',
+    details: 'Un diseño romántico y suave, con patitos, honguitos, ramitas y mariposas. La paleta rosa antigua lo hace muy dulce.',
+    palette: ['#F5EFE6', '#E8D5DD', '#D4B5C4', '#C9A89D', '#A8C9A8'],
+    tags: ['niña', 'patitos', 'rosa', 'delicada']
   },
   {
     num: '07',
-    name: 'Casitas y pajaritos',
-    cat: 'animales',
-    catLabel: 'ANIMALES · UNISEX',
-    img: 'fotos/casitas-pajaritos.jpg',
-    desc: 'Casitas de pájaros con un pajarito central, ramas floridas y pasto azulado.',
-    details: 'Tres casitas-comedero verticales sobre fondo azul cielo, pájaro central con flores. Lateral izquierdo: rama con flores rosa/lila/azul perlado. Lateral derecho: pasto con flores azules. Tono primaveral.',
-    palette: ['#D4DCE8', '#C9D4C4', '#D4B5C4', '#E8D5C4', '#A8C9C9'],
-    tags: ['unisex', 'azul', 'pájaros', 'primavera']
+    name: 'Osito Cielo',
+    cat: 'nino',
+    catLabel: 'NIÑO',
+    img: 'fotos/osito-cielo.jpg',
+    desc: 'Osito en globo aerostático con casitas, nubes y estrellas.',
+    details: 'Una temática de cielo en celeste, crema y dorado suave. Tierna, limpia y pensada para niño.',
+    palette: ['#F5EFE6', '#D4DCE8', '#B8C7D8', '#D4AF87', '#C9B89A'],
+    tags: ['niño', 'osito', 'cielo', 'celeste']
   },
   {
     num: '08',
-    name: 'Granja en pastel',
-    cat: 'animales',
-    catLabel: 'ANIMALES · UNISEX',
-    img: 'fotos/granja-pastel.jpg',
-    desc: 'Granero con calabazas, vaca, ovejita y gallinas. Versión más colorida de la granja.',
-    details: 'Granero rosa/marfil central con girasol. Espantapájaros y calabazas a la izquierda, vaca, ovejita y gallinas en distintos planos. Vías y árbol florido decorando los bordes. Más densidad de elementos.',
-    palette: ['#C9D4C4', '#E8D5C4', '#D4B5A4', '#E8B595', '#D4AF87'],
-    tags: ['unisex', 'campo', 'animales', 'otoño', 'colorido']
+    name: 'Osito Estrella',
+    cat: 'nino',
+    catLabel: 'NIÑO',
+    img: 'fotos/osito-estrella.jpg',
+    desc: 'Osito, estrella fugaz y globos en una paleta celeste bebé.',
+    details: 'Un diseño tierno y luminoso con osito, globos, estrella y nubecitas. Ideal para una portada dulce de niño.',
+    palette: ['#F5EFE6', '#D4DCE8', '#B7D2EA', '#D8CCB6', '#C9B89A'],
+    tags: ['niño', 'osito', 'estrella', 'globos']
+  },
+  {
+    num: '09',
+    name: 'Aviador',
+    cat: 'nino',
+    catLabel: 'NIÑO',
+    img: 'fotos/aviador.jpg',
+    desc: 'Avioncito, piloto bebé, globos y una ciudad en miniatura.',
+    details: 'Una temática de viaje y aventura en tonos celeste, crema y dorado. Tiene movimiento sin perder la ternura.',
+    palette: ['#F5EFE6', '#D4DCE8', '#AFC7DE', '#D4AF87', '#C9B89A'],
+    tags: ['niño', 'avión', 'aventura', 'celeste']
+  },
+  {
+    num: '10',
+    name: 'Safari',
+    cat: 'unisex',
+    catLabel: 'UNISEX',
+    img: 'fotos/safari.jpg',
+    desc: 'León, elefante, jirafa y palmeras en tonos suaves.',
+    details: 'Una escena safari dulce con animalitos, palmeras y pasto en capas. Alegre, neutra y fácil de adaptar para niño o niña.',
+    palette: ['#F5EFE6', '#C9D4C4', '#A8C9C9', '#D4AF87', '#8B6F5C'],
+    tags: ['unisex', 'safari', 'animalitos', 'verde']
+  },
+  {
+    num: '11',
+    name: 'Granja Crema',
+    cat: 'unisex',
+    catLabel: 'UNISEX',
+    img: 'fotos/granja-crema.jpg',
+    desc: 'Granero crema con animalitos y árbol florido.',
+    details: 'Una versión más serena de la granjita, con tonos crema, beige, verde suave y detalles cálidos. Muy elegante para cualquier bebé.',
+    palette: ['#F5EFE6', '#E8D5C4', '#C9B89A', '#A8C9A8', '#8B6F5C'],
+    tags: ['unisex', 'granja', 'crema', 'serena']
   },
 ];
 
@@ -572,7 +720,7 @@ function openModal(num) {
   document.getElementById('m-cat').textContent = `${d.num} · ${d.catLabel}`;
   document.getElementById('m-name').textContent = d.name;
   document.getElementById('m-desc').textContent = d.desc;
-  document.getElementById('m-details').textContent = d.details;
+  document.getElementById('m-details').textContent = `${d.details} ${INCLUDED_NOTE}`;
   document.getElementById('m-pal').innerHTML = d.palette.map(c => `<span class="sw" style="background:${c}" title="${c}"></span>`).join('');
   document.getElementById('m-tags').innerHTML = d.tags.map(t => `<span class="tag">${t}</span>`).join('');
   document.getElementById('m-wa').href = whatsappUrl(`Hola! Vi el catálogo de STORIA y me encantó el diseño "${d.name}" (${d.num}). ¿Me pasás info para reservar?`);
